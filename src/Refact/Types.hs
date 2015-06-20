@@ -6,14 +6,18 @@ module Refact.Types where
 
 data SrcSpan = SrcSpan
                 { start :: (Int, Int)
-                , end :: (Int, Int) } deriving (Read, Show)
+                , end :: (Int, Int) } deriving (Read, Show, Eq, Ord)
 
 data Refactoring a =
   Replace  {
       expr :: a  -- ^ Expression to replace
     , subts :: [(String, a)] -- ^ Substitutions to make
     , orig  :: String -- ^ Replacment template
-    } deriving (Show, Read, Functor)
+    }
+  | ModifyComment {
+      originalComment :: String
+    , newComment :: String
+    } deriving (Show, Read, Functor, Eq, Ord)
 
 
 
