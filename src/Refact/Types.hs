@@ -20,6 +20,9 @@ data Refactoring a =
   | ModifyComment {
       originalComment :: String
     , newComment :: String
+    }
+  | Delete {
+      position :: a
     } deriving (Show, Read, Functor, Eq, Ord)
 
 
