@@ -23,7 +23,9 @@ data Refactoring a =
     }
   | Delete {
       position :: a
+    }
+  | Rename {
+      nameSubts :: [(String, String)]
     } deriving (Show, Read, Functor, Eq, Ord)
-
 
 
