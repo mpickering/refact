@@ -18,7 +18,11 @@ data Refactoring a =
     , orig  :: String -- ^ Replacment template
     }
   | ModifyComment {
-      originalComment :: String
+      commentLocation :: a
+    , newComment :: String
+    }
+  | InsertComment {
+      commentCarrier :: a
     , newComment :: String
     }
   | Delete {
