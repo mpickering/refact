@@ -13,23 +13,28 @@ data RType = Expr | Decl | Type | Pattern | Stmt deriving (Read, Ord, Show, Eq)
 data Refactoring a =
   Replace  {
       rtype :: RType -- ^ Type of expression to be replaced
-    , expr :: a  -- ^ Expression to replace
+    , pos :: a  -- ^ Expression to replace
     , subts :: [(String, a)] -- ^ Substitutions to make
     , orig  :: String -- ^ Replacment template
     }
   | ModifyComment {
-      commentLocation :: a
+      pos :: a
     , newComment :: String
     }
   | InsertComment {
-      commentCarrier :: a
+      pos :: a
     , newComment :: String
     }
   | Delete {
-      position :: a
+      pos :: a
     }
-  | Rename {
-      nameSubts :: [(String, String)]
-    } deriving (Show, Read, Functor, Eq, Ord)
+  | RemoveAsKeyword { -- Takes the position of a import decl and removes the as keyword
+      pos :: a
+      }
+--  | Rename {
+--      nameSubts :: [(String, String)]
+--    }
+  deriving (Show, Read, Functor, Eq, Ord)
+
 
 
