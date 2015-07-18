@@ -8,7 +8,7 @@ data SrcSpan = SrcSpan
                 { start :: (Int, Int)
                 , end :: (Int, Int) } deriving (Read, Show, Eq, Ord)
 
-data RType = Expr | Decl | Type | Pattern | Stmt deriving (Read, Ord, Show, Eq)
+data RType = Expr | Decl | Type | Pattern | Stmt | ModuleName | Bind | Match deriving (Read, Ord, Show, Eq)
 
 data Refactoring a =
   Replace  {
