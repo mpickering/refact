@@ -1,21 +1,23 @@
 {-# LANGUAGE DeriveFunctor #-}
 module Refact.Types where
 
--- Almost all from the Annotated module, but the fixity resolution from Annotated
--- uses the unannotated Assoc enumeration, so export that instead
-
+-- | A generic SrcSpan, usually this is converted immediately to a native
+-- representation. (For example a GHC SrcSpan or a HSE SrcSpan)
 data SrcSpan = SrcSpan
                 { start :: (Int, Int)
                 , end :: (Int, Int) } deriving (Read, Show, Eq, Ord)
 
+
+-- | Types of expressions which we are able to replace.
 data RType = Expr | Decl | Type | Pattern | Stmt | ModuleName | Bind | Match deriving (Read, Ord, Show, Eq)
 
+-- | Supported refactorings
 data Refactoring a =
   Replace  {
       rtype :: RType -- ^ Type of expression to be replaced
     , pos :: a  -- ^ Expression to replace
     , subts :: [(String, a)] -- ^ Substitutions to make
-    , orig  :: String -- ^ Replacment template
+    , orig  :: String -- ^ Replacement template
     }
   | ModifyComment {
       pos :: a
@@ -28,7 +30,7 @@ data Refactoring a =
   | Delete {
       pos :: a
     }
-  | RemoveAsKeyword { -- Takes the position of a import decl and removes the as keyword
+  | RemoveAsKeyword { -- ^  Takes the position of a import decl and removes the as keyword
       pos :: a
       }
 --  | Rename {
