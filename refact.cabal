@@ -3,8 +3,9 @@
 
 name:                refact
 version:             0.1.0.0
--- synopsis:
--- description:
+synopsis:            Specify refactorings to perform with apply-refact
+description:         This library provides a datatype which can be interpreted by apply-refact. It exists
+                     as a seperate library so that applications can specify refactorings without depending on GHC.
 license:             BSD3
 license-file:        LICENSE
 author:              Matthew Pickering
