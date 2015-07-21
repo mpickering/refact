@@ -1,15 +1,19 @@
 {-# LANGUAGE DeriveFunctor #-}
+{-# LANGUAGE DeriveDataTypeable #-}
 module Refact.Types where
+
+import Data.Data
 
 -- | A generic SrcSpan, usually this is converted immediately to a native
 -- representation. (For example a GHC SrcSpan or a HSE SrcSpan)
 data SrcSpan = SrcSpan
                 { start :: (Int, Int)
-                , end :: (Int, Int) } deriving (Read, Show, Eq, Ord)
+                , end :: (Int, Int) } deriving (Read, Show, Eq, Ord, Data, Typeable)
+                deriving (Read, Show, Eq, Ord, Data, Typeable)
 
 
 -- | Types of expressions which we are able to replace.
-data RType = Expr | Decl | Type | Pattern | Stmt | ModuleName | Bind | Match deriving (Read, Ord, Show, Eq)
+data RType = Expr | Decl | Type | Pattern | Stmt | ModuleName | Bind | Match deriving (Read, Ord, Show, Eq, Data, Typeable)
 
 -- | Supported refactorings
 data Refactoring a =
@@ -36,7 +40,7 @@ data Refactoring a =
 --  | Rename {
 --      nameSubts :: [(String, String)]
 --    }
-  deriving (Show, Read, Functor, Eq, Ord)
+  deriving (Show, Read, Functor, Eq, Ord, Data, Typeable )
 
 
 
