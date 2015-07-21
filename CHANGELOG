@@ -1,3 +1,8 @@
+# 0.2
+
+* Changed representation of SrcSpan as suggested by #1.
+* Added Data and Typeable instances.
+
 # 0.1
 
-Initial Release
+* Initial Release
