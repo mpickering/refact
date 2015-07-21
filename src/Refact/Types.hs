@@ -7,8 +7,10 @@ import Data.Data
 -- | A generic SrcSpan, usually this is converted immediately to a native
 -- representation. (For example a GHC SrcSpan or a HSE SrcSpan)
 data SrcSpan = SrcSpan
-                { start :: (Int, Int)
-                , end :: (Int, Int) } deriving (Read, Show, Eq, Ord, Data, Typeable)
+                { startLine :: {-# UNPACK #-} !Int
+                , startCol  :: {-# UNPACK #-} !Int
+                , endLine   :: {-# UNPACK #-} !Int
+                , endCol    :: {-# UNPACK #-} !Int }
                 deriving (Read, Show, Eq, Ord, Data, Typeable)
 
 
