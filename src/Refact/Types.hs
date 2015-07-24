@@ -15,7 +15,8 @@ data SrcSpan = SrcSpan
 
 
 -- | Types of expressions which we are able to replace.
-data RType = Expr | Decl | Type | Pattern | Stmt | ModuleName | Bind | Match deriving (Read, Ord, Show, Eq, Data, Typeable)
+data RType = Expr | Decl | Type | Pattern | Stmt | ModuleName | Bind | Match | Import
+           deriving (Read, Ord, Show, Eq, Data, Typeable)
 
 -- | Supported refactorings
 data Refactoring a =
@@ -34,7 +35,8 @@ data Refactoring a =
     , newComment :: String
     }
   | Delete {
-      pos :: a
+      rtype :: RType
+    , pos :: a
     }
   | RemoveAsKeyword { -- ^  Takes the position of a import decl and removes the as keyword
       pos :: a
