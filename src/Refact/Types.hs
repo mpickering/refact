@@ -38,7 +38,10 @@ data Refactoring a =
       rtype :: RType
     , pos :: a
     }
-  | RemoveAsKeyword { -- ^  Takes the position of a import decl and removes the as keyword
+
+  | -- |  Takes the position of a import decl and removes the as keyword
+    RemoveAsKeyword
+      {
       pos :: a
       }
 --  | Rename {
