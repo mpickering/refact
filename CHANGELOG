@@ -1,3 +1,8 @@
+#
+
+* Added `Import` to `RType`.
+* Added an rtype field to `Delete`.
+
 # 0.2
 
 * Changed representation of SrcSpan as suggested by #1.
