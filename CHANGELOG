@@ -1,4 +1,8 @@
-#
+# 0.3.0.1
+
+* Fix documentation
+
+# 0.3
 
 * Added `Import` to `RType`.
 * Added an rtype field to `Delete`.
