@@ -2,7 +2,7 @@
 -- documentation, see http://haskell.org/cabal/users-guide/
 
 name:                refact
-version:             0.3.0.1
+version:             0.3.0.2
 synopsis:            Specify refactorings to perform with apply-refact
 description:         This library provides a datatype which can be interpreted by apply-refact. It exists
                      as a seperate library so that applications can specify refactorings without depending on GHC.
@@ -13,8 +13,8 @@ maintainer:          matthewtpickering@gmail.com
 -- copyright:
 category:            Development
 build-type:          Simple
-data-files:          README.md
-                    ,CHANGELOG
+extra-source-files:  README.md
+                   , CHANGELOG
 cabal-version:       >=1.10
 
 library
